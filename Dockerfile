@@ -3,7 +3,8 @@ FROM node:dubnium-alpine
 WORKDIR /app
 COPY . /app
 
-RUN npm install -g appcenter-cli \
+RUN npm config set unsafe-perm true \
+    && npm install -g appcenter-cli \
     && apk update \
     && apk add git 
 
